@@ -1,14 +1,17 @@
 const menuicon=document.querySelector('.menu-icon');
 const sidebar=document.querySelector(".side-bar");
+const maincontent=document.querySelector(".main-content");
 menuicon.addEventListener("click",function(){
-  sidebar.classList.toggle("active");
+  sidebar.classList.toggle("open");
+  maincontent.classList.toggle("open");
 });
 
 // close button animtion toggle
 const closebutton=document.querySelector(".close_button");
 closebutton.addEventListener("click",function(){
-  const button=document.querySelector(".active");
- button.classList.remove("active");
+  const button=document.querySelector(".side-bar.open");
+ button.classList.remove("open");
+ document.querySelector(".main-content").classList.remove("open");
 });
 
 //display submenu on click
@@ -46,4 +49,15 @@ const constsubmenu=document.querySelector(".constdrop")
 constsubmenu.addEventListener("click",function(){
   const menu=document.querySelector(".constsub");
   menu.classList.toggle("submenu1");
+});
+
+
+document.querySelector(".recruitbutton").addEventListener("click",function(){
+  const drop1=document.querySelector(".recruitdrop");
+  drop1.classList.toggle("visible");
+});
+
+document.querySelector(".permitbutton").addEventListener("click",function(){
+  const drop1=document.querySelector(".permitdrop");
+  drop1.classList.toggle("visible");
 });

@@ -1,5 +1,5 @@
 body {
-    background-color: lightgrey;
+    background-color:#fff;
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 10px;
@@ -9,11 +9,18 @@ body {
 }
 .menu-bar {
     display: flex;
-    /* height: 40px; */
+    height: 200px;
     width: 100%;
     position: sticky;
     flex-wrap: wrap;
+    border-radius:10px;
+    box-shadow:2px 5px 10px rgb(142 151 140);
+    align-items:self-start;
+    background:url("./hope house.png");
+    background-repeat:no-repeat;
+    background-size:cover;
 }
+
 
 .home img {
     height: 32px;
@@ -51,36 +58,78 @@ body {
 .right-child {
     display: flex;
     margin: 0 3px 0 3px;
-    background: #694cb6;
-    color: black;
+    /* background: #fff; */
+    color: #fff;
     justify-content: center;
     padding: 5px;
     font-family: "Times new roman" sans-serif;
     font-weight: 500;
-    border: 1px solid gray;
+    border: 1px solid rgb(214, 233, 210);
     border-radius: 10px;
-    box-shadow: 1px 2px 5px 1px white;
+    box-shadow: 1px 2px 5px 1px rgb(174 174 174);
 }
-
+.left-child:hover,
+.right-child:hover{
+    background-color: rgb(172, 196, 167);
+    color:black;
+    font-weight: 600;
+    transition:all 0.8s ease;
+}
 .menu-bar a {
+    font-size: large;
     text-decoration: none;
-    color: white;
+    color: #fff;
 }
 .menu-icon,.search-icon{
-    color: white;
+    color: #fff;
 }
-.recriutbutton{
+.Ddesc{
+    display: block;
+    height: 100px;
+    width:100px;
+    border: 2px solid white;
+    background: #fff;
+    box-shadow: 2px 5px 10px grey;
+    border-radius: 10px;
+    opacity: 75%;
+    text-align: center;
+    color: #1B1A1B;
+    position: absolute;
+    top:60px;
+    visibility: hidden;
+    padding-bottom: 5px;
+}
+
+.donatebutton:hover .Ddesc,.applybutton:hover .Ddesc,.helpbutton:hover .Ddesc{
+    visibility: visible;
+}
+.dropitems{
+    height: auto;
+    width:100px;
+    background: #fff;
+    box-shadow: 2px 5px 10px grey;
+    position: absolute;
+    top:60px;
+    background-color:#3b3a3b;
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+.dropitems li{
+    list-style-type: none;
+    margin-left:-40px ;
+}
+.dropitems li a{
+    color: #fff;
+    padding: 10px;
+    border-bottom:1px solid #1B1A1B;
+    display: block;
+    margin: 0;
+    padding-left:20px;
+}
+.container{
     display: flex;
-    justify-content: center;
-    align-content: center;
-}
-.main-content {
-    height: 600px;
-    width: 100%;
-    border: 2px solid grey;
-    box-shadow: 2px 5px 10px white;
-    border-radius: 25px;
-    background-color: white;
 }
 .side-bar{
     background:#1B1A1B;
@@ -88,15 +137,34 @@ body {
     left:-300px;
     height:100vh;
     position: absolute;
-    top:80px;
+    top:240px;
     overflow-y: auto;
     transition: 0.6s ease;
     transition-property: left;
-    border-radius: 0 10px 10px 0; 
+    border-radius: 0 20px 10px 0; 
 }
-.active{
+.side-bar.open{
     left:0px;
 }
+.main-content {
+    display: flex;
+    height: 500px;
+    width:100%;
+    margin-top: 30px;
+    padding-left:10px;
+    padding-top:10px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px hsl(0, 6%, 35%);
+    background-color: white;
+}
+.main-content {
+    margin-left: 0;
+    transition: margin-left 0.6s ease;
+  }
+.main-content.open {
+    margin-left: 300px;
+  }
 header img{
     height: 50px;
     width: 50px;
@@ -126,7 +194,7 @@ header h1{
 }
 .menu{
     width:100%;
-    margin-top: 15px;
+    margin-top:15px;
 }
 .menu-items{
     display: block;
@@ -173,6 +241,7 @@ header h1{
     flex-direction: column;
     margin:2px;
 }
+/* content adjust while clicking sidebar */
 
 /* for computer */
 /* for tablets */
