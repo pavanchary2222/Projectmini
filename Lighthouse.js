@@ -13,7 +13,6 @@ closebutton.addEventListener("click",function(){
  button.classList.remove("open");
  document.querySelector(".main-content").classList.remove("open");
 });
-
 //display submenu on click
 const eventsubmenu=document.querySelector(".eventdrop");
 eventsubmenu.addEventListener("click",function(){

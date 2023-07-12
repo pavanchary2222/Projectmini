@@ -1,40 +1,61 @@
-const imgslide=document.querySelector(".img-slide");
-const images=document.querySelectorAll(".img-slide img");
-document.querySelector(".img-slide").style.width=images[0].clientWidth;
+const slideContainer = document.querySelector('.img-slide');
+const slide = document.querySelector('.img-slide');
 
+const interval = 3000;
 
-let counter=1;
-const leftbtn=document.querySelector(".leftbtn");
-const rightbtn=document.querySelector(".rightbtn");
+let slides = document.querySelectorAll('.img-slide div');
+let index = 1;
+let slideId;
+const slideWidth = slides[index].clientWidth;
+document.querySelector(".img-slide").style.width=slides[0].clientWidth;
+slide.style.transform = `translateX(${-slideWidth * index}px)`;
 
-let size=images[0].clientWidth;
+console.log(slides);
 
-imgslide.style.transform='translateX('+ (-size * counter)+'px)';
+const startSlide = () => {
+    slideId = setInterval(() => {
+        moveToNextSlide();
+    }, interval);
+};
 
-rightbtn.addEventListener("click",()=>{
-    if(counter>=images.length-1) return;
-    imgslide.style.transition='transform 0.3s ease-in-out';
-    counter++;
-    imgslide.style.transform='translateX('+(-size * counter)+'px)';
-});
+const getSlides = () => document.querySelectorAll('.img-slide div');
 
-leftbtn.addEventListener("click",()=>{
-    if(counter<=0) return;
-    imgslide.style.transform='transform 0.3s ease-in-out';
-    counter--;
-    imgslide.style.transform='translateX('+(-size*counter)+'px)';
-});
+slide.addEventListener('transitionend', () => {
+    slides = getSlides();
+    if (slides[index].className === 'firstimg') {
+        slide.style.transition = 'none';
+        index = 1;
+    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+}
 
-imgslide.addEventListener("transitionend",()=>{
-    if(images[counter].className =='lastimg') {
-        imgslide.style.transition='none';
-        counter=images.length-2;
-        imgslide.style.transform='translateX('+ (-size*counter)+'px)';
-    }
-
-    if(images[counter].className=='firstimg'){
-        imgslide.style.transition='none';
-        counter=images.length-counter;
-        imgslide.style.transform='translateX('+ (-size*counter)+'px)';
+  if (slides[index].className === 'lastimg') {
+      slide.style.transition = 'none';
+      index = slides.length - 2;
+      slide.style.transform = `translateX(${-slideWidth * index}px)`;
     }
 });
+
+const moveToNextSlide = () => {
+  slides = getSlides();
+  if (index >= slides.length - 1) return;
+  index++;
+  slide.style.transition = '.7s ease-in-out';
+  slide.style.transform = `translateX(${-slideWidth * index}px)`;
+};
+
+const moveToPreviousSlide = () => {
+  if (index <= 0) return;
+  index--;
+  slide.style.transition = '.7s ease-in-out';
+  slide.style.transform = `translateX(${-slideWidth * index}px)`;
+};
+
+slideContainer.addEventListener('mouseenter', () => {
+  clearInterval(slideId);
+});
+
+slideContainer.addEventListener('mouseleave', startSlide);
+
+document.querySelector('#rightbtn').addEventListener('click', moveToNextSlide);
+document.querySelector('#leftbtn').addEventListener('click', moveToPreviousSlide);
+startSlide();
