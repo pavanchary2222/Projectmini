@@ -6,21 +6,21 @@ body {
 }
 .menu-icon,.search-icon{
     cursor: pointer;
+    /* color: white; */
 }
 .menu-bar {
     display: flex;
-    height: 200px;
+    height: 180px;
     width: 100%;
     position: sticky;
     flex-wrap: wrap;
     border-radius:10px;
     box-shadow:2px 5px 10px rgb(142 151 140);
-    align-items:self-start;
-    background:url("./hope house.png");
+    align-items:flex-start;
+    background:url("./Hope House2.png");
     background-repeat:no-repeat;
-    background-size:cover;
+    background-size: cover;
 }
-
 
 .home img {
     height: 32px;
@@ -50,7 +50,7 @@ body {
     flex-shrink: 1;
     flex-basis: 100px;
     justify-content: flex-end;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     /* align-self: flex-end; */
 }
 
@@ -58,30 +58,30 @@ body {
 .right-child {
     display: flex;
     margin: 0 3px 0 3px;
-    /* background: #fff; */
-    color: #fff;
+    /* background: #f1f1f1; */
     justify-content: center;
     padding: 5px;
     font-family: "Times new roman" sans-serif;
     font-weight: 500;
     border: 1px solid rgb(214, 233, 210);
     border-radius: 10px;
-    box-shadow: 1px 2px 5px 1px rgb(174 174 174);
+    /* box-shadow: 1px 2px 3px 3px rgb(180, 180, 180); */
 }
 .left-child:hover,
 .right-child:hover{
-    background-color: rgb(172, 196, 167);
-    color:black;
+    /* background-color: rgb(172, 196, 167); */
+    opacity: 1;
     font-weight: 600;
-    transition:all 0.8s ease;
+    transition:all 0.4s ease;
 }
 .menu-bar a {
-    font-size: large;
+    font-size: medium;
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
+    /* opacity: 1; */
 }
 .menu-icon,.search-icon{
-    color: #fff;
+    color: #fffdfd;
 }
 .Ddesc{
     display: block;
@@ -134,13 +134,16 @@ body {
 .side-bar{
     background:#1B1A1B;
     width: 300px;
-    left:-300px;
-    height:100vh;
+    left:-310px;
+    height:auto;
+    min-height: 510px;
     position: absolute;
-    top:240px;
+    top:200px;
     overflow-y: auto;
     transition: 0.6s ease;
     transition-property: left;
+    border: 2px solid white;
+    box-shadow: 2px 3px 4px grey;
     border-radius: 0 10px 10px 0; 
 }
 .side-bar.open{
@@ -150,7 +153,7 @@ body {
     display: flex;
     height: 500px;
     width:100%;
-    margin-top: 30px;
+    margin-top: 10px;
     padding-left:10px;
     padding-top:10px;
     border: 2px solid #fff;
@@ -215,7 +218,7 @@ header img{
     margin: 15px; 
     margin-left:110px;
     padding:2px ;
-    border:2px solid white;
+    border:2px solid #fff;
 }
 header{
 background-color: #694cb6;
@@ -223,14 +226,14 @@ background-color: #694cb6;
 .close-btn{
     position: absolute;
     right:0;
-    color: #fff;
+    color: #ffffff;
     margin: 10px;
     font-size: 20px;
     cursor: pointer;
 }
 header h1{
     text-align: center;
-    color:#fff;
+    color:#ffffff;
     font-size: 25px;
     padding-bottom: 10px;
     margin-top: 5px;
